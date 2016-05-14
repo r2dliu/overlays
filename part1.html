@@ -1,0 +1,123 @@
+<html>
+ <head>
+  <meta content="20" http-equiv="refresh">
+   <script src="static/jquery-2.2.2.min.js">
+   </script>
+   <title>
+    Top animated panels
+   </title>
+   <style>
+    @font-face {
+				font-family: "bebasbold";
+				src: url("fonts/QUARTZO-regular.ttf");
+			}
+            
+    body {
+                background-color: transparent;
+            }
+            
+            #matchinfo1 {
+                font-family: "bebasbold", Arial, Helvetica, sans-serif;
+                width: 300px;
+                height: 25px;
+                font-size: 18pt;
+                opacity: 0.0;
+                position: absolute;
+                color: white;
+                top: 11px;
+                left: 85px;
+                text-align: center;
+                -webkit-animation: fade1 20s 0s 1;
+            }
+            
+            #matchinfo2 {
+                font-family: "bebasbold", Arial, Helvetica, sans-serif;
+                width: 300px;
+                height: 25px;
+                font-size: 18pt;
+                opacity: 0.0;
+                position: absolute;
+                color: white;
+                top: 11px;
+                left: 85px;
+                text-align: center;
+                -webkit-animation: fade2 20s 0s 1;
+            }
+            
+            #eventinfo1 {
+                font-family: "bebasbold", Arial, Helvetica, sans-serif;
+                width: 300px;
+                height: 25px;
+                font-size: 18pt;
+                opacity: 0.0;
+                position: absolute;
+                color: white;
+                top: 11px;
+                left: 490px;
+                text-align: center;
+                -webkit-animation: fade1 20s 0s 1;
+            }
+            
+            #eventinfo2 {
+                font-family: "bebasbold", Arial, Helvetica, sans-serif;
+                width: 300px;
+                height: 25px;
+                font-size: 18pt;
+                opacity: 0.0;
+                position: absolute;
+                color: white;
+                top: 11px;
+                left: 490px;
+                text-align: center;
+                -webkit-animation: fade2 20s 0s 1;
+            }
+            
+            @-webkit-keyframes fade1 {
+                0% {
+                    opacity: 0;
+                }
+                6% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 1;
+                }
+                56% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+            
+            @-webkit-keyframes fade2 {
+                0% {
+                    opacity: 1;
+                }
+                6% {
+                    opacity: 0;
+                }
+                50% {
+                    opacity: 0;
+                }
+                56% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+   </style>
+  </meta>
+ </head>
+ <body>
+  <span id="eventinfo1">
+  </span>
+  <span id="eventinfo2">
+  </span>
+  <span id="matchinfo1">
+  </span>
+  <span id="matchinfo2">
+  </span>
+ </body>
+</html>

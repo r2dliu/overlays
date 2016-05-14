@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<versus>
+	<player1 />
+	<player1A />
+	<player1B />
+	<player2 />
+	<player2A />
+	<player2B />
+	<score1>0</score1>
+	<score1A>0</score1A>
+	<score1B />
+	<score2>0</score2>
+	<score2A>0</score2A>
+	<score2B />
+	<match>swatsmash.challonge.com</match>
+	<matchA>swatsmash.challonge.com</matchA>
+	<matchB />
+	<game />
+	<gameA />
+	<gameB />
+	<visible>true</visible>
+	<time>635946243593313569</time>
+</versus>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<settings>
+		<ontop>False</ontop>
+		<snapto>False</snapto>
+		<prefix />
+		<versus />
+		<teams />
+		<aorb />
+	</settings>
+	<tabs>
+		<item type="trophy2" name="versus" auto="true">
+			<head>Scoreboard</head>
+		</item>
+	</tabs>
+</config>

@@ -1,0 +1,173 @@
+<html>
+	<head>
+		<script src="static/jquery-2.2.2.min.js"></script>
+		<title>
+			My Stream Animated Panels
+		</title>
+		<script>
+			var p1new, p2new, p1scorenew, p2scorenew, matchnew, camnew, misc1new, misc2new; 
+			var p1current, p2current, p1scorecurrent, p2scorecurrent, matchcurrent, camcurrent, misc1current, misc2current;
+			var timeoutId = null;
+			
+			function decode(encodedString) {
+				var textArea = document.createElement('textarea');
+				textArea.innerHTML = encodedString;
+				return textArea.value;
+			}
+			
+			function update() {
+			
+				console.log( "ready!" );
+				$.when(
+				
+					$.get("http://localhost:8000/info/player1.txt", function(data) {
+						p1new = data;
+					}),
+					$.get("http://localhost:8000/info/player2.txt", function(data) {
+						p2new = data;
+					}),
+					$.get("http://localhost:8000/info/pscore.txt", function(data) {
+						p1scorenew = data;
+					}),
+					$.get("http://localhost:8000/info/p2score.txt", function(data) {
+						p2scorenew = data;
+					}),
+					$.get("http://localhost:8000/info/names.txt", function(data) {
+						camnew = data;
+					})
+				).then(function() {
+					p1current = document.getElementById("p1").innerHTML;
+					p2current = document.getElementById("p2").innerHTML;
+					p1scorecurrent = document.getElementById("p1score").innerHTML;
+					p2scorecurrent = document.getElementById("p2score").innerHTML;
+					camcurrent = document.getElementById("camera").innerHTML;
+					
+					if (p1new != decode(p1current)) {
+						$("#p1").fadeOut(500);
+						setTimeout(function(){
+							$("#p1").load("http://localhost:8000/info/player1.txt");
+							$("#p1").fadeIn(500);
+						}, 400);
+					};	
+					
+					if (p2new != decode(p2current)) {
+						$("#p2").fadeOut(500);
+						setTimeout(function(){
+							$("#p2").load("http://localhost:8000/info/player2.txt");
+							$("#p2").fadeIn(500);
+						}, 400);
+					};	
+					
+					if (camnew != decode(camcurrent)) {
+						$("#camera").fadeOut(500);
+						setTimeout(function(){
+							$("#camera").load("http://localhost:8000/info/names.txt");
+							$("#camera").fadeIn(500);
+						}, 400);
+					};
+					
+					if (p1scorenew != p1scorecurrent) {
+						$("#p1score").fadeOut(500);
+						setTimeout(function(){
+							$("#p1score").load("http://localhost:8000/info/pscore.txt");
+							$("#p1score").fadeIn(500);
+						}, 400);
+					};	
+					
+					if (p2scorenew != p2scorecurrent) {
+						$("#p2score").fadeOut(500);
+						setTimeout(function(){
+							$("#p2score").load("http://localhost:8000/info/p2score.txt");
+							$("#p2score").fadeIn(500);
+						}, 400);
+					};	
+				});
+			};
+		
+			window.setInterval(function(){ 
+				update()
+			}, 1000);
+
+			
+		</script>
+
+
+		<style>
+			@font-face {
+				font-family: "bebasbold";
+				src: url("fonts/QUARTZO-regular.ttf");
+			}
+			
+			body {
+				background-color: transparent;
+			}
+			
+			#p1 {
+				font-family: "bebasbold", Arial, Helvetica, sans-serif;
+				width: 300px;
+				height: 25px;
+				font-size: 22pt;
+				position: absolute;
+				color: white;
+				top: 260px;
+				left: 960px;
+				text-align: center;
+			}
+			
+			#p1score {
+				font-family: "bebasbold", Arial, Helvetica, sans-serif;
+				width: 300px;
+				height: 25px;
+				font-size: 23pt;
+				position: absolute;
+				color: white;
+				top: 261px;
+				left: 770px;
+				text-align: center;
+			}
+			
+			#p2 {
+				font-family: "bebasbold", Arial, Helvetica, sans-serif;
+				width: 300px;
+				height: 25px;
+				font-size: 22pt;
+				position: absolute;
+				color: white;
+				top: 323px;
+				left: 960px;
+				text-align: center;
+				-webkit-animation: nofade 20s 0s infinite;
+			}
+			
+			#p2score {
+				font-family: "bebasbold", Arial, Helvetica, sans-serif;
+				width: 300px;
+				height: 25px;
+				font-size: 23pt;
+				position: absolute;
+				color: white;
+				top: 323px;
+				left: 770px;
+				text-align: center;
+			}
+			
+		</style>
+
+	</head>
+
+	<body>
+		<span id="p1">
+		</span>
+		<span id="p1score">
+		0
+		</span>
+		<span id="p2">
+		</span>
+		<span id="p2score">
+		0
+		</span>
+		<span id="camera">
+		</span>
+	</body>
+
+</html>
